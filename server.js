@@ -41,6 +41,9 @@ app.post("/api/chat", async (req, res) => {
     console.error("OpenAI error:", err);
     res.status(500).json({ reply: "Failed to get response from OpenAI" });
   }
+  app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 });
 
 
