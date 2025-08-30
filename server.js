@@ -13,7 +13,7 @@ const openai = new OpenAI({
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-// Simpan history percakapan di memory (sederhana)
+
 let conversationHistory = [
   {
     role: "system",
@@ -44,7 +44,7 @@ app.post("/api/chat", async (req, res) => {
 
     const reply = completion.choices[0].message.content;
 
-    // Tambahkan jawaban AI ke history
+   
     conversationHistory.push({
       role: "assistant",
       content: reply,
@@ -57,7 +57,7 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-// Jalankan server
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
